@@ -367,12 +367,14 @@ console.log(colors.indexOf("blue", 2)); // 객체나 배열일 경우 찾을 수
 console.log(colors.indexOf("purple"));
  */
 
+/* 
 let objColors = [
   { id: 1, color: "green" },
   { id: 2, color: "blue" },
   { id: 3, color: "yellow" },
   { id: 4, color: "purple" }
 ]
+ */
 
 /* 
 let index = objColors.findIndex((element) => element.color == "yellow");
@@ -391,8 +393,70 @@ let index = objColors.find((element) => element.color == "blue");
 console.log(index);
  */
 
+/* 
 let filterArray = objColors.filter((element, index, array) => element.id > 1);
 let sliceArray = objColors.slice(1, 3);
 
 console.log(filterArray);
-console.log(sliceArray);
+console.log(sliceArray); 
+ */
+
+/*
+let fArray = ["green", "blue", "purple", "yellow"];
+
+console.log(fArray.concat(sArray));
+console.log(fArray.join()); // , 기본 구분자
+console.log(fArray.join(" "));
+ */
+
+/* 
+const compare = (a, b) => {
+  if (a > b) return -1;
+  else if (a < b) return 1;
+  else return 0;
+}
+
+let colors = ["green", "blue", "purple", "yellow"];
+
+colors.sort();
+console.log(colors);
+colors.sort(compare);
+console.log(colors);
+ */
+
+/* 
+const compareNum = (a, b) => {
+  return a - b;
+}
+
+const compareReverseNum = (a, b) => {
+  return b - a;
+}
+
+let numbers = [1, 100, 25, 50, 120, 3];
+
+numbers.sort();
+console.log(numbers);
+numbers.sort(compareNum);
+console.log(numbers);
+numbers.sort(compareReverseNum);
+console.log(numbers);
+ */
+
+let numbers = [1, 100, 25, 50];
+
+let sum = 0;
+
+numbers.forEach((element) => {
+  sum += element;
+});
+
+console.log(sum);
+
+sum = numbers.reduce((acc, cur, curIdx) => {
+  console.log(acc, cur, curIdx);
+  return acc + cur;
+}, 0);
+
+console.log(sum);
+
