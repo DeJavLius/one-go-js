@@ -338,14 +338,14 @@ for (let key of human) {
 // 배열 내장 함수
 // let arr = [1, 2, 3, 4, 5];
 
-/* 
+/*
 arr.foreach((element, index, array) => {
   console.log(`${index}번째 요소는 ${element}입니다.`);
   console.log(a);
 });
  */
 
-/* 
+/*
 let nArray = arr.map((element) => {
   return element * 10;
 });
@@ -353,7 +353,7 @@ let nArray = arr.map((element) => {
 console.log(nArray);
  */
 
-/* 
+/*
 let colors = ["green", "blue", "yellow"];
 
 console.log(colors.at(-1)); // last element
@@ -367,7 +367,7 @@ console.log(colors.indexOf("blue", 2)); // 객체나 배열일 경우 찾을 수
 console.log(colors.indexOf("purple"));
  */
 
-/* 
+/*
 let objColors = [
   { id: 1, color: "green" },
   { id: 2, color: "blue" },
@@ -376,40 +376,41 @@ let objColors = [
 ]
  */
 
-/* 
+/*
 let index = objColors.findIndex((element) => element.color == "yellow");
 
 console.log(` index: ${index}, value: ${objColors[index].color}`);
  */
 
-/* 
+/*
 objColors.findIndex((element, index) => console.log(`${index}번째 값 ${element.id}: ${element.color}`));
 objColors.findIndex((e, i, array) => console.log(array));
  */
 
-/* 
+/*
 let index = objColors.find((element) => element.color == "blue");
 
 console.log(index);
  */
 
-/* 
+/*
 let filterArray = objColors.filter((element, index, array) => element.id > 1);
 let sliceArray = objColors.slice(1, 3);
 
 console.log(filterArray);
-console.log(sliceArray); 
+console.log(sliceArray);
  */
 
 /*
 let fArray = ["green", "blue", "purple", "yellow"];
+let sArray = ["black", "orange"];
 
 console.log(fArray.concat(sArray));
 console.log(fArray.join()); // , 기본 구분자
 console.log(fArray.join(" "));
  */
 
-/* 
+/*
 const compare = (a, b) => {
   if (a > b) return -1;
   else if (a < b) return 1;
@@ -424,7 +425,7 @@ colors.sort(compare);
 console.log(colors);
  */
 
-/* 
+/*
 const compareNum = (a, b) => {
   return a - b;
 }
@@ -443,6 +444,7 @@ numbers.sort(compareReverseNum);
 console.log(numbers);
  */
 
+/*
 let numbers = [1, 100, 25, 50];
 
 let sum = 0;
@@ -456,7 +458,135 @@ console.log(sum);
 sum = numbers.reduce((acc, cur, curIdx) => {
   console.log(acc, cur, curIdx);
   return acc + cur;
-}, 0);
+}, 0); // 값을 앞으로 1칸 씩 당기면서 합산함, 2번째 인자 0은 초기 합산 값으로 초기화 값
 
 console.log(sum);
+ */
 
+/*
+let a = Array.isArray([1, 100, 50]);
+let b = Array.isArray({ id: 1, color: "green" });
+let c = Array.isArray("String");
+let d = Array.isArray(undefined);
+
+console.log(a, b, c, d);
+ */
+
+// 구조분해 할당
+/*
+let colors = ["blue", "green", "purple"];
+
+let [c1, c2, c3] = colors;
+let d1, d2, d3;
+[d1, d2, d3] = ["blue", "green", "purple"];
+let e1, e2;
+[e1, e2] = ["blue", "green", "purple"];
+
+console.log(c1, c2, c3);
+console.log(d1, d2, d3);
+console.log(e1, e2); // 1, 2
+
+let f1, f2, f3, f4;
+[f1, f2, f3, f4] = ["blue", "green", "purple"];
+console.log(f1, f2, f3, f4); // 1, 2, 3, undefind
+[f1, f2, f3, f4 = "yellow"] = ["blue", "green", "purple"];
+console.log(f1, f2, f3, f4); // 1, 2, 3, 4
+ */
+
+/*
+let a = 10;
+let b = 5;
+
+[a, b] = [b, a];
+console.log(a, b);
+ */
+
+/*
+let colors = {
+  cv1: "green",
+  cv2: "blue",
+  cv3: "purple",
+}
+
+let { cv1, cv2, cv3, cv4 = "yellow" } = colors;
+let { cv1: c1, cv2: c2, cv3: c3 } = colors;
+
+console.log(cv1, cv2, cv3, cv4);
+console.log(c1, c2, c3);
+ */
+
+// spread & rest
+/*
+const toy = {
+  type: "bear",
+  price: 15000
+};
+
+const blueToy = {
+  ...toy,
+  color: "blue"
+};
+
+const yellowToy = {
+  ...toy,
+  color: "yellow"
+};
+
+console.log(blueToy);
+console.log(yellowToy);
+
+const fColor = ["red", "orange", "yellow"];
+const sColor = ["blue", "navy", "purple"];
+
+const rainbow = [...fColor, "green", ...sColor];
+
+console.log(rainbow);
+ */
+
+// rest
+/*
+const blueToy = {
+  type: "bear",
+  price: 15000,
+  color: "blue"
+};
+
+const { type, ...rest } = blueToy;
+// const { ...error, color } = blueToy; // error, 반드시 마지막에 작성해야 함
+const { ...test } = blueToy;
+
+console.log(type);
+console.log(rest);
+console.log(test);
+
+const color = ["red", "orange", "yellow", "green"];
+
+const [c1, c2, ...cRest] = color;
+
+console.log(c1, c2);
+console.log(cRest);
+ */
+
+/*
+const print = (a, b, ...restOf) => {
+  console.log(a, b, restOf);
+}
+
+print(1, 2, 3, 4, 5, 6);
+ */
+
+// 동시 활용
+/* 
+const print = (...args) => {
+  console.log(args);
+};
+*/
+/* const print = (a, b, c, d, e, f) => {
+  console.log(a, b, c, d, e, f);
+}; */
+
+/*
+const numbers = [1, 2, 3, 4, 5, 6];
+// print(numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]); // 전달받는 값이 많아질수록 점점 길어짐
+print(...numbers);
+ */
