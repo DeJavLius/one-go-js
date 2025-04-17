@@ -13,7 +13,7 @@ export default function App($app) {
     initialState: '',
     onClick: async (name) => {
       history.pushState(null, `${name} 사진`, name);
-      this.updateContent();
+      this.updateContent(name);
     },
   });
 
