@@ -1,0 +1,19 @@
+{
+  "name": "one-go",
+  "version": "1.0.0",
+  "description": "1. initial server setting\r ```bash\r npm init -y\r ```\r 2. in lecture, express version is 4\r ```bash\r npm install express@4\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-lmo99-work:DeJavLius/one-go-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
