@@ -1,5 +1,20 @@
 {
   "dependencies": {
     "express": "^4.21.2"
-  }
+  },
+  "name": "one-go",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-lmo99-work:DeJavLius/one-go-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
