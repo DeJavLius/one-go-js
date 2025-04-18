@@ -7,3 +7,7 @@ npm init -y
 ```bash
 npm install express@4
 ```
+3. start server
+```bash
+node ./server/server.js
+```
